@@ -6,6 +6,7 @@ mkdir packages
 
 # build mesa
 cd mesa
+updpkgsums
 makepkg -s --noconfirm
 # move packages to upload area
 rm *debug*.pkg.tar.zst
@@ -13,6 +14,7 @@ mv *.pkg.tar.zst ../packages
 
 # build lib32-mesa
 cd ../lib32-mesa
+updpkgsums
 makepkg -s --noconfirm
 # move packages to upload area
 rm *debug*.pkg.tar.zst
