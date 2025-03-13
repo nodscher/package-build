@@ -8,6 +8,8 @@ mkdir packages
 cd mesa
 updpkgsums
 makepkg -s --noconfirm
+# store mesa commit
+MESA_COMMIT=$(cd src/mesa && git rev-parse HEAD)
 # move packages to upload area
 rm *debug*.pkg.tar.zst
 mv *.pkg.tar.zst ../packages
