@@ -19,3 +19,8 @@ jobs:
           chown user -R /tmp
           ls -la
           sudo -u user ./build.sh
+      - name: Archive the artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: mesa-git
+          path: packages
