@@ -82,7 +82,7 @@ options=(
   !lto
 )
 source=(
-  "git+https://gitlab.freedesktop.org/mesa/mesa.git#commit=${MESA_COMMIT:-origin/HEAD}"
+  "git+https://gitlab.freedesktop.org/mesa/mesa.git${MESA_COMMIT}"
 )
 validpgpkeys=(
   946D09B5E4C9845E63075FF1D961C596A7203456 # Andres Gomez <tanty@igalia.com>
