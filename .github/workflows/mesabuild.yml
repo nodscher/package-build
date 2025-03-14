@@ -21,9 +21,9 @@ jobs:
           pacman -Syu --noconfirm base-devel git sudo pacman-contrib
           useradd user -G wheel && echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
           chown user -R ..
-          [ -n "${{ inputs.commit}}" ] && export MESA_COMMIT="#commit=${{ inputs.commit}}"
+          [ -n "${{ inputs.commit}}" ] && MESA_COMMIT="#commit=${{ inputs.commit}}"
           env
-          sudo -u user env
+          MESA_COMMIT=$MESA_COMMIT sudo -u user env
           #sudo -u user ./build.sh
       - name: Archive the artifacts
         uses: actions/upload-artifact@v4
