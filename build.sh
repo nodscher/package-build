@@ -21,3 +21,7 @@ makepkg -s --noconfirm
 # move packages to upload area
 rm *debug*.pkg.tar.zst
 mv *.pkg.tar.zst ../packages
+
+#remove colons from names
+cd ../packages
+for file in *:*; do mv "$file" "${file//:/_}"; done
