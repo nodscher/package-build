@@ -22,9 +22,7 @@ jobs:
           useradd user -G wheel && echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
           chown user -R ..
           [ -n "${{ inputs.commit}}" ] && MESA_COMMIT="#commit=${{ inputs.commit}}"
-          env
-          sudo -u user MESA_COMMIT=$MESA_COMMIT  env
-          #sudo -u user ./build.sh
+          sudo -u user MESA_COMMIT=$MESA_COMMIT ./build.sh
       - name: Archive the artifacts
         uses: actions/upload-artifact@v4
         with:
