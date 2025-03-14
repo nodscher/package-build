@@ -1,6 +1,8 @@
 name: Build mesa git
 
 on:
+  schedule:
+    - cron:  '20 6,18 * * *'
   workflow_dispatch:
     inputs:
       commit:
