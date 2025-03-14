@@ -9,7 +9,7 @@ cd mesa
 updpkgsums
 makepkg -s --noconfirm
 # store mesa commit
-MESA_COMMIT="#commit=$(cd src/mesa && git rev-parse HEAD)"
+export MESA_COMMIT="#commit=$(cd src/mesa && git rev-parse HEAD)"
 # move packages to upload area
 rm *debug*.pkg.tar.zst
 mv *.pkg.tar.zst ../packages
