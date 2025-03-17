@@ -1,4 +1,4 @@
-name: Build mesa git
+name: Build linux-mainline
 
 on:
   schedule:
