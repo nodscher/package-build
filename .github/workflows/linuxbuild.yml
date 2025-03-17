@@ -15,6 +15,9 @@ jobs:
       - name: Compile
         run: |
           ls -la
+          ls -la kernel
+          ls -la kernel/linux-mainline
+          ls -la .gitmodules
         #   echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
         #   pacman -Syu --noconfirm base-devel git sudo pacman-contrib
         #   git submodule update --init --recursive
