@@ -11,7 +11,6 @@ makepkg -s --noconfirm
 # store mesa commit
 export MESA_COMMIT="#commit=$(cd src/mesa && git rev-parse HEAD)"
 # move packages to upload area
-rm *debug*.pkg.tar.zst
 mv *.pkg.tar.zst ../packages
 
 # build lib32-mesa
@@ -19,7 +18,6 @@ cd ../lib32-mesa
 updpkgsums
 makepkg -s --noconfirm
 # move packages to upload area
-rm *debug*.pkg.tar.zst
 mv *.pkg.tar.zst ../packages
 
 #remove colons from names
