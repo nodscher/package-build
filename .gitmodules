@@ -1,0 +1,3 @@
+[submodule "linux-mainline"]
+	path = linux-mainline
+	url = https://aur.archlinux.org/linux-mainline
