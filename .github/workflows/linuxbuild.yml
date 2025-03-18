@@ -23,7 +23,6 @@ jobs:
           useradd user -G wheel && echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
           chown user -R ..
           cd kernel
-          echo CONFIG_NTSYNC=m | tee -a linux-mainline/config 
           sudo -u user ./build.sh
       - name: Archive the artifacts
         uses: actions/upload-artifact@v4
