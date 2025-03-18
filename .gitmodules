@@ -1,3 +1,6 @@
 [submodule "kernel/linux-mainline"]
 	path = kernel/linux-mainline
 	url = https://aur.archlinux.org/linux-mainline
+[submodule "kernel/linux-drm-tip-git"]
+	path = kernel/linux-drm-tip-git
+	url = https://aur.archlinux.org/linux-drm-tip-git
