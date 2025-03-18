@@ -5,7 +5,7 @@ function cleanup() {
     cd $STARTDIR
     rm -rf $TEMPDIR
 }
-trap cleanup SIGINT SIGTERM EXIT
+trap cleanup SIGINT SIGTERM SIGKILL EXIT
 
 
 STARTDIR=$(pwd)
