@@ -28,7 +28,7 @@ build-linux-drm() {
 }
 
 build-linux-mainline() {
-    cd mesa
+    cd kernel
     ./build-mainline.sh
     repo-add -R $STARTDIR/repo/custom.db.tar.gz packages/*.pkg.tar.xz
 }
