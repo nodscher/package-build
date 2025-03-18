@@ -5,7 +5,7 @@ set -e
 mkdir packages
 
 #build linux-drm
-cd linux-drm
+cd linux-drm-tip-git
 grep CONFIG_NTSYNC=m config || echo CONFIG_NTSYNC=m | tee -a config 
 updpkgsums
 makepkg -s --noconfirm
