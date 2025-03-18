@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e
 
+function cleanup() {
+    cd $STARTDIR
+    rm -rf $TEMPDIR
+}
+trap cleanup SIGINT SIGTERM EXIT
+
+
 STARTDIR=$(pwd)
 [ -d repo ]
 TEMPDIR=$(mktemp -dp .)
@@ -34,11 +41,5 @@ elif [[ $(basename $0) == build-linux-mainline ]]; then
     build-linux-mainline
 else
     echo "Unknown function"
-    cd $STARTDIR
-    rm -rf $TEMPDIR
     exit 1
 fi
-
-
-cd $STARTDIR
-rm -rf $TEMPDIR
