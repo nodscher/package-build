@@ -35,10 +35,10 @@ elif [[ $(basename $0) == build-linux-mainline ]]; then
 else
     echo "Unknown function"
     cd $STARTDIR
-    rm -r $TEMPDIR
+    rm -rf $TEMPDIR
     exit 1
 fi
 
 
 cd $STARTDIR
-rm -r $TEMPDIR
+rm -rf $TEMPDIR
