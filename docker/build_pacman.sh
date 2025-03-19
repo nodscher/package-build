@@ -12,7 +12,7 @@ trap cleanup EXIT
 
 STARTDIR=$(pwd)
 [ -d repo ]
-[ -d repo/custom ] || mkdir repo/custom
+[ -d repo/custom ] || (sudo chown user:user ./repo && mkdir repo/custom)
 TEMPDIR=$(mktemp -dp .)
 cd $TEMPDIR
 git clone --recursive https://github.com/nodscher/package-build
