@@ -9,7 +9,7 @@ function cleanup() {
 }
 trap cleanup EXIT
 
-
+echo "$(basename $0) $(date)"
 STARTDIR=$(pwd)
 [ -d repo ]
 [ -d repo/custom ] || (sudo chown user:user ./repo && mkdir repo/custom)

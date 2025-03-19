@@ -5,12 +5,17 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./repo:/buildzone/repo
+      - ./log:/buildzone/log
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
     container_name: archlinux-builder
   archlinux-builder-http:
     image: python:latest
     volumes:
       - ./repo:/repo
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - "8000:8000"
     entrypoint: ["/usr/bin/python3", "-m", "http.server", "-d", "/repo/custom"]
