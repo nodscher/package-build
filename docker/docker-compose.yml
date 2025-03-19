@@ -13,6 +13,6 @@ services:
       - ./repo:/repo
     ports:
       - "8000:8000"
-    entrypoint: ["/usr/bin/python3", "-m", "http.server", "-d", "/repo/"]
+    entrypoint: ["/usr/bin/python3", "-m", "http.server", "-d", "/repo/custom"]
     restart: unless-stopped
     container_name: archlinux-builder-http

@@ -9,7 +9,6 @@ WORKDIR /buildzone
 RUN chown -R user:user /buildzone
 USER user
 COPY --chown=user:user build_pacman.sh build_pacman.sh
-COPY --chown=user:user server.sh server.sh
-RUN mkdir repo log && ln -s build_pacman.sh build-linux-drm && ln -s build_pacman.sh build-linux-mainline && ln -s build_pacman.sh build-mesa
+RUN mkdir log && ln -s build_pacman.sh build-linux-drm && ln -s build_pacman.sh build-linux-mainline && ln -s build_pacman.sh build-mesa
 
 ENTRYPOINT ["/usr/bin/sudo", "crond", "-f"]

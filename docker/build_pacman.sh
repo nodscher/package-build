@@ -12,6 +12,7 @@ trap cleanup EXIT
 
 STARTDIR=$(pwd)
 [ -d repo ]
+[ -d repo/custom ] || mkdir repo/custom
 TEMPDIR=$(mktemp -dp .)
 cd $TEMPDIR
 git clone --recursive https://github.com/nodscher/package-build
@@ -37,7 +38,7 @@ build-linux-mainline() {
 
 add-to-repo() {
     echo "###Adding packages to repo###"
-    repo-add -R $STARTDIR/repo/custom.db.tar.zst packages/*.pkg.tar.zst
+    repo-add -R $STARTDIR/repo/custom/custom.db.tar.zst packages/*.pkg.tar.zst
 }
 
 if [[ $(basename $0) == build-mesa ]]; then
