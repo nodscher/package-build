@@ -5,5 +5,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8000:8000
+    volumes:
+      - ./repo:/buildzone/repo
     restart: unless-stopped
     container_name: archlinux-builder
