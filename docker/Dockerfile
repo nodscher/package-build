@@ -12,4 +12,4 @@ COPY --chown=user:user build_pacman.sh build_pacman.sh
 COPY --chown=user:user server.sh server.sh
 RUN mkdir repo log && ln -s build_pacman.sh build-linux-drm && ln -s build_pacman.sh build-linux-mainline && ln -s build_pacman.sh build-mesa
 
-ENTRYPOINT ["/buildzone/server.sh"]
+ENTRYPOINT ["/usr/bin/sudo", "crond", "-f"]

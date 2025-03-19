@@ -3,9 +3,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - 8000:8000
     volumes:
       - ./repo:/buildzone/repo
     restart: unless-stopped
     container_name: archlinux-builder
+  archlinux-builder-http:
+    image: python:latest
+    volumes:
+      - ./repo:/repo
+    ports:
+      - "8000:8000"
+    entrypoint: ["/usr/bin/python3", "-m", "http.server", "-d", "/repo/"]
+    restart: unless-stopped
+    container_name: archlinux-builder-http
