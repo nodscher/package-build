@@ -7,7 +7,7 @@ function cleanup() {
     rm -rf $TEMPDIR
     echo "###Done###"
 }
-trap cleanup SIGINT SIGTERM SIGKILL EXIT
+trap cleanup EXIT
 
 
 STARTDIR=$(pwd)
