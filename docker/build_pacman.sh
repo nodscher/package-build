@@ -2,8 +2,10 @@
 set -e
 
 function cleanup() {
+    echo "###Cleaning up###"
     cd $STARTDIR
     rm -rf $TEMPDIR
+    echo "###Done###"
 }
 trap cleanup SIGINT SIGTERM SIGKILL EXIT
 
@@ -34,6 +36,7 @@ build-linux-mainline() {
 }
 
 add-to-repo() {
+    echo "###Adding packages to repo###"
     repo-add -R $STARTDIR/repo/custom.db.tar.zst packages/*.pkg.tar.zst
 }
 
