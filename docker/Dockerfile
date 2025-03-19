@@ -11,7 +11,8 @@ RUN chown -R user:user /buildzone
 USER user
 COPY --chown=user:user build_pacman.sh build_pacman.sh
 COPY --chown=user:user crontab crontab
+COPY --chown=user:user server.sh server.sh
 RUN crontab crontab
 RUN ln -s build_pacman.sh build-linux-drm && ln -s build_pacman.sh build-linux-mainline && ln -s build_pacman.sh build-mesa
 
-ENTRYPOINT ["/usr/bin/sudo", "crond", "-f", "&&", "tail", "-f", "/buildzone/log/cron"]
+ENTRYPOINT ["./server.sh"]
