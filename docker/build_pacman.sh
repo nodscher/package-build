@@ -21,21 +21,21 @@ cd package-build
 build-mesa() {
     cd mesa
     ./build.sh
-    #rm -f $STARTDIR/repo/custom/*mesa-*.pkg.tar.zst $STARTDIR/repo/custom/*vulkan-*.pkg.tar.zst
+    rm -f $STARTDIR/repo/custom/*mesa-*.pkg.tar.zst $STARTDIR/repo/custom/*vulkan-*.pkg.tar.zst
     add-to-repo
 }
 
 build-linux-drm() {
     cd kernel
     ./build-drm.sh
-    #rm -f $STARTDIR/repo/custom/linux-drm-*.pkg.tar.zst
+    rm -f $STARTDIR/repo/custom/linux-drm-*.pkg.tar.zst
     add-to-repo
 }
 
 build-linux-mainline() {
     cd kernel
     ./build-mainline.sh
-    #rm -f $STARTDIR/repo/custom/linux-mainline-*.pkg.tar.zst
+    rm -f $STARTDIR/repo/custom/linux-mainline-*.pkg.tar.zst
     add-to-repo
 }
 
