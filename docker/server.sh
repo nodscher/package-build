@@ -7,4 +7,4 @@ sudo crond
 
 echo "cron started successfully" | tee -a log/cron
 
-tail -f log/cron
+tail -fn1 log/cron
