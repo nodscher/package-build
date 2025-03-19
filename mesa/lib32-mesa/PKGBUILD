@@ -4,12 +4,12 @@
 # Contributor: Jan de Groot <jgc@archlinux.org>
 # Contributor: Andreas Radke <andyrtr@archlinux.org>
 
-pkgbase=lib32-mesa
+pkgbase=lib32-mesa-git
 pkgname=(
-  lib32-mesa
-  lib32-opencl-rusticl-mesa
-  lib32-vulkan-mesa-layers
-  lib32-vulkan-radeon
+  lib32-mesa-git
+  lib32-opencl-rusticl-mesa-git
+  lib32-vulkan-mesa-layers-git
+  lib32-vulkan-radeon-git
 )
 pkgver=25.1.0_devel.a6c717d006b
 pkgrel=1
@@ -196,7 +196,7 @@ _pick() {
   done
 }
 
-package_lib32-mesa() {
+package_lib32-mesa-git() {
   depends=(
     lib32-expat
     lib32-gcc-libs
@@ -264,7 +264,7 @@ package_lib32-mesa() {
   install -Dm644 mesa/docs/license.rst -t "$pkgdir/usr/share/licenses/$pkgname"
 }
 
-package_lib32-opencl-rusticl-mesa() {
+package_lib32-opencl-rusticl-mesa-git() {
   pkgdesc="Open-source OpenCL drivers - RustICL variant - 32-bit"
   depends=(
     lib32-clang
@@ -291,7 +291,7 @@ package_lib32-opencl-rusticl-mesa() {
   install -Dm644 mesa/docs/license.rst -t "$pkgdir/usr/share/licenses/$pkgname"
 }
 
-package_lib32-vulkan-mesa-layers() {
+package_lib32-vulkan-mesa-layers-git() {
   pkgdesc="Mesa's Vulkan layers - 32-bit"
   depends=(
     lib32-gcc-libs
@@ -311,7 +311,7 @@ package_lib32-vulkan-mesa-layers() {
   install -Dm644 mesa/docs/license.rst -t "$pkgdir/usr/share/licenses/$pkgname"
 }
 
-package_lib32-vulkan-radeon() {
+package_lib32-vulkan-radeon-git() {
   pkgdesc="Open-source Vulkan driver for AMD GPUs - 32-bit"
   depends=(
     lib32-expat

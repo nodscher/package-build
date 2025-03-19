@@ -4,12 +4,12 @@
 # Contributor: Jan de Groot <jgc@archlinux.org>
 # Contributor: Andreas Radke <andyrtr@archlinux.org>
 
-pkgbase=mesa
+pkgbase=mesa-git
 pkgname=(
-  mesa
-  opencl-rusticl-mesa
-  vulkan-mesa-layers
-  vulkan-radeon
+  mesa-git
+  opencl-rusticl-mesa-git
+  vulkan-mesa-layers-git
+  vulkan-radeon-git
 )
 pkgver=25.1.0_devel.a6c717d006b
 pkgrel=1
@@ -202,7 +202,7 @@ _pick() {
   done
 }
 
-package_mesa() {
+package_mesa-git() {
   depends=(
     expat
     gcc-libs
@@ -273,7 +273,7 @@ package_mesa() {
   install -Dm644 mesa/docs/license.rst -t "$pkgdir/usr/share/licenses/$pkgname"
 }
 
-package_opencl-rusticl-mesa() {
+package_opencl-rusticl-mesa-git() {
   pkgdesc="Open-source OpenCL drivers - RustICL variant"
   depends=(
     clang
@@ -300,7 +300,7 @@ package_opencl-rusticl-mesa() {
   install -Dm644 mesa/docs/license.rst -t "$pkgdir/usr/share/licenses/$pkgname"
 }
 
-package_vulkan-mesa-layers() {
+package_vulkan-mesa-layers-git() {
   pkgdesc="Mesa's Vulkan layers"
   depends=(
     gcc-libs
@@ -320,7 +320,7 @@ package_vulkan-mesa-layers() {
   install -Dm644 mesa/docs/license.rst -t "$pkgdir/usr/share/licenses/$pkgname"
 }
 
-package_vulkan-radeon() {
+package_vulkan-radeon-git() {
   pkgdesc="Open-source Vulkan driver for AMD GPUs"
   depends=(
     expat
