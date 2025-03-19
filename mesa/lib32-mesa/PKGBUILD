@@ -216,7 +216,7 @@ package_lib32-mesa-git() {
     lib32-zlib
     lib32-zstd
 
-    mesa
+    mesa-git
   )
   optdepends=("opengl-man-pages: for the OpenGL API man pages")
   provides=(
@@ -228,11 +228,13 @@ package_lib32-mesa-git() {
     lib32-vdpau-driver
   )
   conflicts=(
+    lib32-mesa
     'lib32-libva-mesa-driver<1:24.2.7-1'
     'lib32-mesa-libgl<17.0.1-2'
     'lib32-mesa-vdpau<1:24.2.7-1'
   )
   replaces=(
+    lib32-mesa
     'lib32-libva-mesa-driver<1:24.2.7-1'
     'lib32-mesa-libgl<17.0.1-2'
     'lib32-mesa-vdpau<1:24.2.7-1'
@@ -279,11 +281,11 @@ package_lib32-opencl-rusticl-mesa-git() {
     lib32-zlib
     lib32-zstd
 
-    opencl-rusticl-mesa
+    opencl-rusticl-mesa-git
   )
   optdepends=("opencl-headers: headers necessary for OpenCL development")
   provides=(lib32-opencl-driver)
-  replaces=("lib32-opencl-mesa<=23.1.4-1")
+  replaces=("lib32-opencl-mesa")
   conflicts=(lib32-opencl-mesa)
 
   mv clrust/* "$pkgdir"
@@ -301,7 +303,7 @@ package_lib32-vulkan-mesa-layers-git() {
     lib32-libxcb
     lib32-wayland
 
-    vulkan-mesa-layers
+    vulkan-mesa-layers-git
   )
   conflicts=(lib32-vulkan-mesa-layer)
   replaces=(lib32-vulkan-mesa-layer)
@@ -331,7 +333,7 @@ package_lib32-vulkan-radeon-git() {
     lib32-zlib
     lib32-zstd
 
-    vulkan-radeon
+    vulkan-radeon-git
   )
   optdepends=("lib32-vulkan-mesa-layers: additional vulkan layers")
   provides=(lib32-vulkan-driver)

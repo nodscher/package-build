@@ -235,11 +235,13 @@ package_mesa-git() {
     'libva-mesa-driver<1:24.2.7-1'
     'mesa-libgl<17.0.1-2'
     'mesa-vdpau<1:24.2.7-1'
+    mesa
   )
   replaces=(
     'libva-mesa-driver<1:24.2.7-1'
     'mesa-libgl<17.0.1-2'
     'mesa-vdpau<1:24.2.7-1'
+    mesa
   )
 
   meson install -C build --destdir "$pkgdir"
@@ -292,7 +294,7 @@ package_opencl-rusticl-mesa-git() {
   )
   optdepends=("opencl-headers: headers necessary for OpenCL development")
   provides=(opencl-driver)
-  replaces=("opencl-mesa<=23.1.4-1")
+  replaces=("opencl-mesa")
   conflicts=(opencl-mesa)
 
   mv clrust/* "$pkgdir"
@@ -342,6 +344,8 @@ package_vulkan-radeon-git() {
   )
   optdepends=("vulkan-mesa-layers: additional vulkan layers")
   provides=(vulkan-driver)
+  replaces=(vulkan-radeon)
+  conflicts=(vulkan-radeon)
 
   mv vkradeon/* "$pkgdir"
 
