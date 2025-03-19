@@ -18,18 +18,22 @@ cd package-build
 build-mesa() {
     cd mesa
     ./build.sh
-    repo-add -R $STARTDIR/repo/custom.db.tar.gz packages/*.pkg.tar.xz
+    add-to-repo
 }
 
 build-linux-drm() {
     cd kernel
     ./build-drm.sh
-    repo-add -R $STARTDIR/repo/custom.db.tar.gz packages/*.pkg.tar.xz
+    add-to-repo
 }
 
 build-linux-mainline() {
     cd kernel
     ./build-mainline.sh
+    add-to-repo
+}
+
+add-to-repo() {
     repo-add -R $STARTDIR/repo/custom.db.tar.gz packages/*.pkg.tar.xz
 }
 
