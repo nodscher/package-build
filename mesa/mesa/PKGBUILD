@@ -158,7 +158,7 @@ pkgver() {
   cd mesa
   local _ver
   _ver=$(<VERSION)
-  echo "${_ver/-/_}.$(git rev-parse --short HEAD)"
+  echo "${_ver/-/_}.$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
 }
 
 build() {
