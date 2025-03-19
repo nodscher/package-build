@@ -20,6 +20,9 @@ makepkg -s --noconfirm
 # move packages to upload area
 mv *.pkg.tar.zst ../packages
 
-#remove colons from names
+# remove colons from names
 cd ../packages
 for file in *:*; do mv "$file" "${file//:/_}"; done
+
+# go back to start directory
+cd ..
