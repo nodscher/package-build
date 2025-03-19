@@ -1,1 +1,2 @@
-20 6,18 * * * cd /buildzone && ./build-mesa 2>&1 | tee -a log/mesa-"$(date +\%Y\%m\%d\%H\%M)" log/cron
+0 6,18 * * * cd /buildzone && ./build-mesa 2>&1 | tee -a log/mesa-"$(date +\%Y\%m\%d\%H\%M)" log/cron
+0 12 * * * cd /buildzone && ./build-linux-drm 2>&1 | tee -a log/linux-drm-"$(date +\%Y\%m\%d\%H\%M)" log/cron
