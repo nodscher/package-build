@@ -14,4 +14,4 @@ COPY --chown=user:user crontab crontab
 RUN crontab crontab
 RUN ln -s build_pacman.sh build-linux-drm && ln -s build_pacman.sh build-linux-mainline && ln -s build_pacman.sh build-mesa
 
-ENTRYPOINT ["/usr/bin/sudo", "chown", "user:user", "log","&&", "crond", "-f", "&&", "tail", "-f", "/buildzone/log/cron"]
+ENTRYPOINT ["/usr/bin/sudo", "chown", "user:user", "log","&&", "/usr/bin/sudo", "crond", "-f", "&&", "tail", "-f", "/buildzone/log/cron"]
