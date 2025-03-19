@@ -10,6 +10,8 @@ WORKDIR /buildzone
 RUN chown -R user:user /buildzone
 USER user
 COPY --chown=user:user build_pacman.sh build_pacman.sh
-RUN mkdir log && ln -s build_pacman.sh build-linux-drm && ln -s build_pacman.sh build-linux-mainline && ln -s build_pacman.sh build-mesa
+COPY --chown=user:user crontab crontab
+RUN crontab crontab
+RUN ln -s build_pacman.sh build-linux-drm && ln -s build_pacman.sh build-linux-mainline && ln -s build_pacman.sh build-mesa
 
-ENTRYPOINT ["/usr/bin/sudo", "crond", "-f"]
+ENTRYPOINT ["/usr/bin/sudo", "crond", "-f", "&&", "tail", "-f", "/buildzone/log/cron"]
