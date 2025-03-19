@@ -34,7 +34,7 @@ build-linux-mainline() {
 }
 
 add-to-repo() {
-    repo-add -R $STARTDIR/repo/custom.db.tar.gz packages/*.pkg.tar.xz
+    repo-add -R $STARTDIR/repo/custom.db.tar.zst packages/*.pkg.tar.zst
 }
 
 if [[ $(basename $0) == build-mesa ]]; then
