@@ -5,4 +5,6 @@ set -e
 
 sudo crond
 
+echo "cron started successfully" | tee -a log/cron
+
 tail -f log/cron
