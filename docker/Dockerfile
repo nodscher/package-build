@@ -1,7 +1,7 @@
 FROM archlinux:latest
 
 RUN echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-RUN pacman -Syu --noconfirm sudo base-devel git pacman-contrib python cron fish htop
+RUN pacman -Syu --noconfirm sudo base-devel git pacman-contrib python cron fish htop nano
 COPY makepkg.conf /etc/makepkg.conf
 
 RUN useradd user -mG wheel && echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
