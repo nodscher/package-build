@@ -224,6 +224,7 @@ package_mesa-git() {
   )
   optdepends=("opengl-man-pages: for the OpenGL API man pages")
   provides=(
+    mesa
     "libva-mesa-driver=$epoch:$pkgver-$pkgrel"
     "mesa-libgl=$epoch:$pkgver-$pkgrel"
     "mesa-vdpau=$epoch:$pkgver-$pkgrel"
@@ -293,9 +294,18 @@ package_opencl-rusticl-mesa-git() {
     libclc # For /usr/share/clc/
   )
   optdepends=("opencl-headers: headers necessary for OpenCL development")
-  provides=(opencl-driver)
-  replaces=("opencl-mesa")
-  conflicts=(opencl-mesa)
+  provides=(
+    opencl-driver
+    opencl-rusticl-mesa
+  )
+  replaces=(
+    "opencl-mesa"
+    opencl-rusticl-mesa
+  )
+  conflicts=(
+    opencl-mesa
+    opencl-rusticl-mesa
+  )
 
   mv clrust/* "$pkgdir"
 
@@ -314,8 +324,15 @@ package_vulkan-mesa-layers-git() {
 
     python
   )
-  conflicts=(vulkan-mesa-layer)
-  replaces=(vulkan-mesa-layer)
+  provides=(vulkan-mesa-layers)
+  conflicts=(
+    vulkan-mesa-layer
+    vulkan-mesa-layers
+  )
+  replaces=(
+    vulkan-mesa-layer
+    vulkan-mesa-layers
+  )
 
   mv vklayer/* "$pkgdir"
 
@@ -343,7 +360,10 @@ package_vulkan-radeon-git() {
     zstd
   )
   optdepends=("vulkan-mesa-layers: additional vulkan layers")
-  provides=(vulkan-driver)
+  provides=(
+    vulkan-driver
+    vulkan-radeon
+  )
   replaces=(vulkan-radeon)
   conflicts=(vulkan-radeon)
 
