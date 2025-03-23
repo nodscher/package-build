@@ -9,6 +9,8 @@ function cleanup() {
 }
 trap cleanup EXIT
 
+STARTDIR=$(pwd)
+
 if [[ $(basename $0) == build-mesa ]]; then
     latest=$(git ls-remote https://gitlab.freedesktop.org/mesa/mesa.git HEAD | cut -c1-10)
     [[ "$(tar --exclude='*/*' -tf $STARTDIR/repo/custom/custom.db.tar.zst | grep mesa-git)" != *"$latest"* ]] || (echo mesa-git-$latest is already up to date; exit 1)
@@ -26,7 +28,6 @@ fi
 
 echo "$(basename $0) $(date)"
 sudo pacman -Syu --noconfirm
-STARTDIR=$(pwd)
 [ -d repo ]
 [ -d repo/custom ] || (sudo chown user:user ./repo && mkdir repo/custom)
 TEMPDIR=$(mktemp -dp .)
