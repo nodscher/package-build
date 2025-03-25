@@ -1,14 +1,6 @@
 #!/bin/bash
 set -e
 
-function cleanup() {
-    echo "###Cleaning up###"
-    cd $STARTDIR
-    rm -rf $TEMPDIR
-    echo "###Done###"
-}
-trap cleanup EXIT
-
 STARTDIR=$(pwd)
 
 if [[ $(basename $0) == build-mesa ]]; then
@@ -31,6 +23,15 @@ echo "$(basename $0) $(date)"
 sudo pacman -Syu --noconfirm
 [ -d repo ]
 [ -d repo/custom ] || (sudo chown user:user ./repo && mkdir repo/custom)
+
+function cleanup() {
+    echo "###Cleaning up###"
+    cd $STARTDIR
+    rm -rf $TEMPDIR
+    echo "###Done###"
+}
+trap cleanup EXIT
+
 TEMPDIR=$(mktemp -dp .)
 cd $TEMPDIR
 git clone --recursive https://github.com/nodscher/package-build
@@ -60,10 +61,4 @@ add-to-repo() {
     mv packages/*.pkg.tar.zst $STARTDIR/repo/custom/
 }
 
-if [[ $(basename $0) == build-mesa ]]; then
-    build-mesa
-elif [[ $(basename $0) == build-linux-drm ]]; then
-    build-linux-drm
-elif [[ $(basename $0) == build-linux-mainline ]]; then
-    build-linux-mainlin
-fi
+$(basename $0)
