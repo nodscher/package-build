@@ -34,7 +34,7 @@ trap cleanup EXIT
 
 TEMPDIR=$(mktemp -dp .)
 cd $TEMPDIR
-git clone --recursive https://github.com/nodscher/package-build
+git clone https://github.com/nodscher/package-build
 cd package-build
 
 build-mesa() {
@@ -45,12 +45,14 @@ build-mesa() {
 
 build-linux-drm() {
     cd kernel
+    git submodule update --init --remote
     ./build-drm.sh
     add-to-repo
 }
 
 build-linux-mainline() {
     cd kernel
+    git submodule update --init --remote
     ./build-mainline.sh
     add-to-repo
 }
