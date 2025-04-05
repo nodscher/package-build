@@ -160,13 +160,11 @@ build() {
     -D gallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,llvmpipe,softpipe,iris,crocus,i915,zink
     -D gallium-extra-hud=true
     -D gallium-nine=true
-    -D gallium-opencl=icd
     -D gallium-rusticl=true
     -D gles1=disabled
     -D html-docs=disabled
     -D libunwind=disabled
     -D microsoft-clc=disabled
-    -D osmesa=true
     -D valgrind=disabled
     -D video-codecs=all
     -D vulkan-drivers=amd
@@ -247,9 +245,6 @@ package_lib32-mesa-git() {
     local libdir=usr/lib32 icddir=usr/share/vulkan/icd.d
 
     cd "$pkgdir"
-
-    _pick clover $libdir/gallium-pipe
-    _pick clover $libdir/libMesaOpenCL*
 
     _pick clrust $libdir/libRusticlOpenCL*
 

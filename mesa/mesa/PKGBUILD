@@ -168,13 +168,11 @@ build() {
     -D gallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,llvmpipe,softpipe,iris,crocus,i915,zink,d3d12
     -D gallium-extra-hud=true
     -D gallium-nine=true
-    -D gallium-opencl=icd
     -D gallium-rusticl=true
     -D gles1=disabled
     -D html-docs=disabled
     -D libunwind=disabled
     -D microsoft-clc=disabled
-    -D osmesa=true
     -D valgrind=enabled
     -D video-codecs=all
     -D vulkan-drivers=amd
@@ -252,10 +250,6 @@ package_mesa-git() {
 
     cd "$pkgdir"
 
-    _pick clover $libdir/gallium-pipe
-    _pick clover $libdir/libMesaOpenCL*
-    _pick clover etc/OpenCL/vendors/mesa.icd
-
     _pick clrust $libdir/libRusticlOpenCL*
     _pick clrust etc/OpenCL/vendors/rusticl.icd
 
@@ -266,8 +260,6 @@ package_mesa-git() {
     _pick vkradeon $icddir/radeon_icd*.json
     _pick vkradeon $libdir/libvulkan_radeon.so
     _pick vkradeon usr/share/drirc.d/00-radv-defaults.conf
-
-    #_pick docs usr/share/doc
 
     # indirect rendering
     ln -sr $libdir/libGLX_{mesa,indirect}.so.0
