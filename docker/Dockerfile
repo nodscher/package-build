@@ -14,6 +14,6 @@ COPY --chown=user:user crontab crontab
 COPY --chown=user:user server.sh server.sh
 COPY --chown=user:user rm.sh rm.sh
 RUN crontab crontab
-RUN ln -s build_pacman.sh build-linux-drm && ln -s build_pacman.sh build-linux-mainline && ln -s build_pacman.sh build-mesa
+RUN for f in build-linux-drm-tip-git build-linux-mainline build-mesa build-linux-amd build-linux-amd-drm-next; do ln -s build_pacman.sh "$f"; done
 
 ENTRYPOINT ["./server.sh"]
