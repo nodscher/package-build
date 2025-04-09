@@ -1,7 +1,7 @@
 FROM archlinux:latest
 
 RUN echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-RUN pacman -Syu --noconfirm sudo base-devel git pacman-contrib python cron fish htop nano less
+RUN pacman -Syu --noconfirm sudo base-devel git pacman-contrib python cron fish htop nano less wget
 COPY makepkg.conf /etc/makepkg.conf
 RUN sed -i "s/x86-64-placeholder/$(/lib/ld-linux-x86-64.so.2 --help | grep supported | awk 'FNR==1 {print$1}')/g" /etc/makepkg.conf
 
