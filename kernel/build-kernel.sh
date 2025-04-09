@@ -5,7 +5,7 @@ set -e
 mkdir packages
 
 #build linux
-cd "$@"
+cd linux-"$@"
 wget https://gitlab.archlinux.org/archlinux/packaging/packages/linux/-/raw/main/config
 mv config.1 config || true
 updpkgsums
