@@ -1,5 +1,5 @@
 0 6,18 * * * cd /buildzone && (time ./build-mesa) 2>&1 | tee -a log/mesa-"$(date +\%Y\%m\%d\%H\%M)" log/cron
-0 0    * * * cd /buildzone && (time ./build-linux-drm) 2>&1 | tee -a log/linux-drm-"$(date +\%Y\%m\%d\%H\%M)" log/cron
-0 12   * * * cd /buildzone && (time ./build-linux-mainline) 2>&1 | tee -a log/linux-mainline-"$(date +\%Y\%m\%d\%H\%M)" log/cron
+0 0    * * * cd /buildzone && (time ./build-linux-amd ) 2>&1 | tee -a log/linux-drm-"$(date +\%Y\%m\%d\%H\%M)" log/cron
+
 30 23  * * * /buildzone/rm.sh 2>&1 | tee -a /buildzonelog/rm-"$(date +\%Y\%m\%d\%H\%M)" /buildzone/log/cron
 0 23   * * * sed -i -e :a -e '$q;N;21,$D;ba' /buildzone/log/cron 2>&1 && echo "log cleaned" | tee -a /buildzone/log/cron
