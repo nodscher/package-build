@@ -65,6 +65,7 @@ makedepends=(
   wayland-protocols
   xorgproto
 )
+groups=(mesa-custom)
 options=(
   # GCC 14 LTO causes segfault in LLVM under si_llvm_optimize_module
   # https://gitlab.freedesktop.org/mesa/mesa/-/issues/11140
