@@ -40,6 +40,7 @@ options=(
 _srcname=$pkgbase
 source=(
   "$_srcname::git+https://gitlab.freedesktop.org/agd5f/linux.git"
+  config
 )
 sha256sums=('SKIP')
 b2sums=('SKIP')
