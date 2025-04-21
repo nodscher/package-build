@@ -7,6 +7,3 @@
 [submodule "kernel/linux-amd-drm-next"]
 	path = kernel/linux-amd-drm-next
 	url = https://aur.archlinux.org/linux-amd-drm-next.git
-[submodule "kernel/linux-amd"]
-	path = kernel/linux-amd
-	url = https://aur.archlinux.org/linux-amd-git.git
