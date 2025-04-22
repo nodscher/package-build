@@ -87,8 +87,6 @@ prepare() {
 
   make -s kernelrelease > version
   echo "Prepared $pkgbase version $(<version)"
-
-  git apply ../fix-cursor.patch
 }
 
 build() {
