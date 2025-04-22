@@ -41,9 +41,14 @@ _srcname=$pkgbase
 source=(
   "$_srcname::git+https://gitlab.freedesktop.org/agd5f/linux.git"
   config
+  fix-cursor.patch
 )
-sha256sums=('SKIP')
-b2sums=('SKIP')
+sha256sums=('SKIP'
+            '570542f69c1e4625972c50c392aa710dace12aed2544c20c0258602163f24b26'
+            '4e9b1500c8bd61fc34b4af47fdafcf8d11c5db66546e060ebbc801530b3da743')
+b2sums=('SKIP'
+        '9f1e2cb8489d843fbad248d6cc312ec06495bb9f04943365b7084c11d8e728c5271f4121eb7a501370b3720cadea3db189182f458bcfc89f879c7d14fbf2c0ce'
+        '0744838f94567f249d85ea656d5320c96821f913db7be016a6f169b2d36698c4ec680c9b64be3cbd1e4fdfe2d9dae348cf9db1caad2e39d8bf5bb2ce387d47cc')
 
 pkgver() {
   cd $_srcname
@@ -82,6 +87,8 @@ prepare() {
 
   make -s kernelrelease > version
   echo "Prepared $pkgbase version $(<version)"
+
+  git apply ../fix-cursor.patch
 }
 
 build() {
